@@ -46,9 +46,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:8px 5%;display:flex;
 .hero-content{position:relative;z-index:3;width:100%;padding:150px 5% 110px;max-width:800px;padding-top:112px}
 
 /* HERO - MOBILE: swap to pre-cropped portrait image, text at bottom */
-@media(max-width:768px){
-  .hero{min-height:100svh;align-items:flex-end
-  .team-grid{grid-template-columns:1fr;gap:18px}
 }
   .hero-photo{
     /* Use the mobile-specific pre-cropped image showing her face */
@@ -175,6 +172,42 @@ section{padding:clamp(64px,8vw,104px) 5%}
 .form-error-msg{margin-top:14px;padding:12px 16px;background:rgba(224,82,82,.09);border-radius:10px;color:#c0392b;font-size:.84rem;display:none}
 .form-error-msg.visible{display:block}
 
+
+@media(max-width:768px){
+  .hero{min-height:100svh;align-items:flex-end}
+
+  /* HERO image swap for mobile */
+  .hero-photo{
+    background-image:url('images/hero-mobile.jpg');
+    background-size:cover;
+    background-position:center 15%;
+  }
+  .hero-overlay{
+    background:linear-gradient(
+      to bottom,
+      rgba(18,28,72,.05) 0%,
+      rgba(18,28,72,.10) 30%,
+      rgba(18,28,72,.60) 55%,
+      rgba(18,28,72,.92) 72%,
+      rgba(18,28,72,.97) 100%
+    )
+  }
+  .hero-vignette-top{height:100px;background:linear-gradient(to bottom,rgba(18,28,72,.4) 0%,transparent 100%)}
+  .hero-content{
+    padding:0 6% 44px;
+    max-width:100%;
+    padding-top:clamp(46vh, 54vh, 62vh);
+  }
+  .hero-title{font-size:clamp(3.0rem,9vw,3.7rem)}
+  .hero-subtitle{max-width:520px;font-size:.98rem}
+  .hero-buttons{flex-direction:column;gap:10px}
+  .btn-primary,.btn-ghost{width:100%;justify-content:center}
+
+  /* Executive team: single column on mobile */
+  .team-grid{grid-template-columns:1fr;gap:18px}
+}
+
+
 /* TEAM */
 .team-section{background:var(--light);padding:clamp(56px,7vw,88px) 5%}
 .team-inner{max-width:1040px;margin:0 auto}
@@ -231,8 +264,6 @@ footer{background:var(--navy);padding:56px 5% 36px}
   .contact-inner{grid-template-columns:1fr;gap:48px}
   .contact-left{position:static}
 }
-@media(max-width:768px){
-  .nav-logo{height:60px}
   .card-title-zone{min-height:unset;margin-bottom:10px}
   .card-logo-zone{height:72px}.card-logo-therapy{height:72px}.card-logo-recovery{height:60px}
   .service-card{padding:32px 24px 30px}
@@ -290,16 +321,58 @@ footer{background:var(--navy);padding:56px 5% 36px}
   .nav-short{display:inline}
 }
 
+
+/* Mobile nav logo buttons */
+.nav-logos{display:none;align-items:center;gap:10px}
+.nav-logo-btn{
+  display:flex;align-items:center;justify-content:center;
+  width:56px;height:38px;
+  border-radius:999px;
+  border:1px solid rgba(27,44,112,.18);
+  background:rgba(255,255,255,.92);
+  box-shadow:0 6px 18px rgba(27,44,112,.08);
+  -webkit-tap-highlight-color:transparent;
+}
+.nav-logo-btn:active{transform:translateY(1px)}
+.nav-logo-btn img{height:18px;width:auto;display:block}
+@media(max-width:780px){
+  .nav-links{display:none}
+  .nav-logos{display:flex}
+}
+
+.team-header strong{font-weight:700}
+
+.card-visit-pill{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 14px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.18);
+  background:rgba(3,139,155,.16);
+  color:#ffffff;
+  text-decoration:none;
+  font-weight:650;
+  letter-spacing:.01em;
+}
+.card-visit-pill:hover{background:rgba(3,139,155,.22)}
+@media(max-width:768px){
+  .card-visit-pill{margin-top:10px}
+}
+
+@media(max-width:768px){
+  .team-grid{grid-template-columns:1fr !important}
+}
 </style>
 </head>
 <body>
 <nav id="mainNav">
 <img alt="Insight Behavioral Centers" class="nav-logo" src="images/insight-only-logo.png"/>
 <div class="nav-links">
-<a aria-label="Insight Into Action Therapy (opens in new tab)" class="nav-practice-link" href="https://www.insightactiontherapy.com/" rel="noopener noreferrer" target="_blank"><span class="nav-long">Insight Into Action Therapy</span><span class="nav-short">IIAT</span></a>
+<a aria-label="Insight Into Action Therapy (opens in new tab)" class="nav-practice-link" href="https://www.insightactiontherapy.com/" rel="noopener noreferrer" target="_blank"><span class="nav-long">Insight Into Action Therapy</span><span class="nav-short">Therapy</span></a>
 <div class="nav-divider"></div>
-<a aria-label="Insight Recovery Centers (opens in new tab)" class="nav-practice-link" href="https://www.insightrecoverycenters.com/" rel="noopener noreferrer" target="_blank"><span class="nav-long">Insight Recovery Centers</span><span class="nav-short">IRC</span></a>
-</div>
+<a aria-label="Insight Recovery Centers (opens in new tab)" class="nav-practice-link" href="https://www.insightrecoverycenters.com/" rel="noopener noreferrer" target="_blank"><span class="nav-long">Insight Recovery Centers</span><span class="nav-short">Recovery</span></a>
+</div><div class="nav-logos"><a aria-label="Insight Into Action Therapy" class="nav-logo-btn" href="https://www.insightactiontherapy.com/" rel="noopener noreferrer" target="_blank"><img alt="" src="images/IIAT-logo.png"/></a><a aria-label="Insight Recovery Centers" class="nav-logo-btn" href="https://www.insightrecoverycenters.com/" rel="noopener noreferrer" target="_blank"><img alt="" src="images/IRC-logo.png"/></a></div>
 </nav>
 <!-- HERO -->
 <section class="hero">
@@ -438,31 +511,31 @@ footer{background:var(--navy);padding:56px 5% 36px}
 <div class="team-header reveal">
 <p class="section-eyebrow">Our Leadership</p>
 <h2 class="section-title">Meet the Executive Team</h2>
-<p style="margin-top:14px;color:var(--text-mid);font-size:.96rem;line-height:1.72;max-width:480px;margin-left:auto;margin-right:auto">Clinician-founded and led. Tap any photo to connect directly.</p>
+<p style="margin-top:14px;color:var(--text-mid);font-size:.96rem;line-height:1.72;max-width:480px;margin-left:auto;margin-right:auto">Clinician-founded and led.<br/><strong>Tap any photo to connect directly.</strong></p>
 </div>
 <div class="team-grid">
 <div aria-label="Toggle contact card for Craig James" class="team-card reveal reveal-delay-1" role="button" tabindex="0"><div class="team-card-inner"><div class="team-card-front"><div class="team-card-photo" style="background-image:url('images/craig-james-headshot.jpg')"></div><div class="team-card-footer"><p class="team-contact-label">Contact</p><p class="team-name">Craig James</p><p class="team-role">LCSW, LSATP, MAC  ·  Co-Founder</p></div></div><div class="team-card-back">
 <p class="overlay-name">Craig James</p><p class="overlay-creds">LCSW, LSATP, MAC</p><p class="overlay-role">Co-Founder</p><div class="overlay-divider"></div>
 <a class="overlay-contact-item" href="mailto:cjames@insightactiontherapy.com"><svg viewbox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg><span>Email Craig</span></a>
-<a class="overlay-contact-item" href="tel:+17036467664,34"><svg viewbox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"></path></svg>(703) 646-7664 ext. 34</a>
+<a class="overlay-contact-item" href="tel:+17036467664,34"><svg viewbox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"></path></svg><span>Call Craig</span></a>
 <p class="overlay-close-hint">Tap to close</p>
 </div></div></div>
 <div aria-label="Toggle contact card for Cyndi Turner" class="team-card reveal reveal-delay-2" role="button" tabindex="0"><div class="team-card-inner"><div class="team-card-front"><div class="team-card-photo" style="background-image:url('images/cyndi-turner-headshot.jpg')"></div><div class="team-card-footer"><p class="team-contact-label">Contact</p><p class="team-name">Cyndi Turner</p><p class="team-role">LCSW, LSATP, MAC  ·  Co-Founder</p></div></div><div class="team-card-back">
 <p class="overlay-name">Cyndi Turner</p><p class="overlay-creds">LCSW, LSATP, MAC</p><p class="overlay-role">Co-Founder</p><div class="overlay-divider"></div>
 <a class="overlay-contact-item" href="mailto:cturner@insightactiontherapy.com"><svg viewbox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg><span>Email Cyndi</span></a>
-<a class="overlay-contact-item" href="tel:+17036467664,28"><svg viewbox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"></path></svg>(703) 646-7664 ext. 28</a>
+<a class="overlay-contact-item" href="tel:+17036467664,28"><svg viewbox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"></path></svg><span>Call Cyndi</span></a>
 <p class="overlay-close-hint">Tap to close</p>
 </div></div></div>
 <div aria-label="Toggle contact card for Matt Christian" class="team-card reveal reveal-delay-3" role="button" tabindex="0"><div class="team-card-inner"><div class="team-card-front"><div class="team-card-photo" style="background-image:url('images/matt-christian-headshot.jpg')"></div><div class="team-card-footer"><p class="team-contact-label">Contact</p><p class="team-name">Matt Christian</p><p class="team-role">LCSW, LSATP  ·  Executive Director, IIAT</p></div></div><div class="team-card-back">
 <p class="overlay-name">Matt Christian</p><p class="overlay-creds">LCSW, LSATP</p><p class="overlay-role">Executive Director, Insight Into Action Therapy</p><div class="overlay-divider"></div>
 <a class="overlay-contact-item" href="mailto:mchristian@insightactiontherapy.com"><svg viewbox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg><span>Email Matt</span></a>
-<a class="overlay-contact-item" href="tel:+17036467664,14"><svg viewbox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"></path></svg>(703) 646-7664 ext. 14</a>
+<a class="overlay-contact-item" href="tel:+17036467664,14"><svg viewbox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"></path></svg><span>Call Matt</span></a>
 <p class="overlay-close-hint">Tap to close</p>
 </div></div></div>
 <div aria-label="Toggle contact card for Chrissy Chow" class="team-card reveal reveal-delay-4" role="button" tabindex="0"><div class="team-card-inner"><div class="team-card-front"><div class="team-card-photo" style="background-image:url('images/chrissy-chow-headshot.jpg')"></div><div class="team-card-footer"><p class="team-contact-label">Contact</p><p class="team-name">Chrissy Chow</p><p class="team-role">BSW, CSAC-S  ·  Executive Director, IRC</p></div></div><div class="team-card-back">
 <p class="overlay-name">Chrissy Chow</p><p class="overlay-creds">BSW, CSAC-S</p><p class="overlay-role">Executive Director, Insight Recovery Centers</p><div class="overlay-divider"></div>
 <a class="overlay-contact-item" href="mailto:cchow@insightrecoverycenters.com"><svg viewbox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg><span>Email Chrissy</span></a>
-<a class="overlay-contact-item" href="tel:+17032149499,23"><svg viewbox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"></path></svg>(703) 214-9499 ext. 23</a>
+<a class="overlay-contact-item" href="tel:+17032149499,23"><svg viewbox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"></path></svg><span>Call Chrissy</span></a>
 <p class="overlay-close-hint">Tap to close</p>
 </div></div></div>
 </div>
