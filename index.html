@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -26,7 +27,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:8px 5%;display:flex;
 .nav-practice-link{position:relative;font-family:'Raleway',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.04em;text-decoration:none;padding:8px 16px;border-radius:100px;border:1px solid rgba(27,44,112,.20);color:var(--navy);transition:color .25s,border-color .25s;white-space:nowrap}
 .nav-practice-link:hover{color:var(--cyan);border-color:var(--cyan)}
 .nav-divider{width:1px;height:18px;background:rgba(27,44,112,.14);margin:0 4px;flex-shrink:0}
-@media(max-width:780px){.nav-links{display:none}}
+
 
 /* HERO - DESKTOP */
 .hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
@@ -46,7 +47,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:8px 5%;display:flex;
 
 /* HERO - MOBILE: swap to pre-cropped portrait image, text at bottom */
 @media(max-width:768px){
-  .hero{min-height:100svh;align-items:flex-end}
+  .hero{min-height:100svh;align-items:flex-end
+  .team-grid{grid-template-columns:1fr;gap:18px}
+}
   .hero-photo{
     /* Use the mobile-specific pre-cropped image showing her face */
     background-image:url('images/craig-james-headshot.jpg');
@@ -273,15 +276,29 @@ footer{background:var(--navy);padding:56px 5% 36px}
 .team-card-front{position:absolute;inset:0}
 .team-card-front .team-card-photo{position:absolute;inset:0}
 .team-card-front .team-card-footer{position:absolute;left:0;right:0;bottom:0}
+
+.overlay-contact-item{overflow-wrap:anywhere;word-break:break-word}
+
+
+/* Mobile nav: show site links in compact form */
+.nav-short{display:none}
+@media(max-width:780px){
+  .nav-links{display:flex !important; gap:8px; align-items:center}
+  .nav-divider{display:none}
+  .nav-practice-link{padding:7px 12px; font-size:.72rem}
+  .nav-long{display:none}
+  .nav-short{display:inline}
+}
+
 </style>
 </head>
 <body>
 <nav id="mainNav">
 <img alt="Insight Behavioral Centers" class="nav-logo" src="images/insight-only-logo.png"/>
 <div class="nav-links">
-<a class="nav-practice-link" href="https://www.insightactiontherapy.com/" rel="noopener noreferrer" target="_blank">Insight Into Action Therapy</a>
+<a aria-label="Insight Into Action Therapy (opens in new tab)" class="nav-practice-link" href="https://www.insightactiontherapy.com/" rel="noopener noreferrer" target="_blank"><span class="nav-long">Insight Into Action Therapy</span><span class="nav-short">IIAT</span></a>
 <div class="nav-divider"></div>
-<a class="nav-practice-link" href="https://www.insightrecoverycenters.com/" rel="noopener noreferrer" target="_blank">Insight Recovery Centers</a>
+<a aria-label="Insight Recovery Centers (opens in new tab)" class="nav-practice-link" href="https://www.insightrecoverycenters.com/" rel="noopener noreferrer" target="_blank"><span class="nav-long">Insight Recovery Centers</span><span class="nav-short">IRC</span></a>
 </div>
 </nav>
 <!-- HERO -->
@@ -424,27 +441,27 @@ footer{background:var(--navy);padding:56px 5% 36px}
 <p style="margin-top:14px;color:var(--text-mid);font-size:.96rem;line-height:1.72;max-width:480px;margin-left:auto;margin-right:auto">Clinician-founded and led. Tap any photo to connect directly.</p>
 </div>
 <div class="team-grid">
-<div aria-label="Toggle contact card for Craig James" class="team-card reveal reveal-delay-1" role="button" tabindex="0"><div class="team-card-inner"><div class="team-card-front"><div class="team-card-photo" style="background-image:url('images/craig-james-headshot.jpg')"></div><div class="team-card-footer"><p class="team-contact-label">Contact</p><p class="team-name">Craig James</p><p class="team-role">LCSW, LSATP, MAC  ·  Co-Founder</p></div></div><div class="team-card-back">
+<div aria-label="Toggle contact card for Craig James" class="team-card reveal reveal-delay-1" role="button" tabindex="0"><div class="team-card-inner"><div class="team-card-front"><div class="team-card-photo" style="background-image:url('images/craig-james-headshot.jpg')"></div><div class="team-card-footer"><p class="team-contact-label">Contact</p><p class="team-name">Craig James</p><p class="team-role">LCSW, LSATP, MAC  ·  Co-Founder</p></div></div><div class="team-card-back">
 <p class="overlay-name">Craig James</p><p class="overlay-creds">LCSW, LSATP, MAC</p><p class="overlay-role">Co-Founder</p><div class="overlay-divider"></div>
-<a class="overlay-contact-item" href="mailto:cjames@insightactiontherapy.com"><svg viewbox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg><span>cjames@insightactiontherapy.com</span></a>
+<a class="overlay-contact-item" href="mailto:cjames@insightactiontherapy.com"><svg viewbox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg><span>Email Craig</span></a>
 <a class="overlay-contact-item" href="tel:+17036467664,34"><svg viewbox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"></path></svg>(703) 646-7664 ext. 34</a>
 <p class="overlay-close-hint">Tap to close</p>
 </div></div></div>
-<div aria-label="Toggle contact card for Cyndi Turner" class="team-card reveal reveal-delay-2" role="button" tabindex="0"><div class="team-card-inner"><div class="team-card-front"><div class="team-card-photo" style="background-image:url('images/cyndi-turner-headshot.jpg')"></div><div class="team-card-footer"><p class="team-contact-label">Contact</p><p class="team-name">Cyndi Turner</p><p class="team-role">LCSW, LSATP, MAC  ·  Co-Founder</p></div></div><div class="team-card-back">
+<div aria-label="Toggle contact card for Cyndi Turner" class="team-card reveal reveal-delay-2" role="button" tabindex="0"><div class="team-card-inner"><div class="team-card-front"><div class="team-card-photo" style="background-image:url('images/cyndi-turner-headshot.jpg')"></div><div class="team-card-footer"><p class="team-contact-label">Contact</p><p class="team-name">Cyndi Turner</p><p class="team-role">LCSW, LSATP, MAC  ·  Co-Founder</p></div></div><div class="team-card-back">
 <p class="overlay-name">Cyndi Turner</p><p class="overlay-creds">LCSW, LSATP, MAC</p><p class="overlay-role">Co-Founder</p><div class="overlay-divider"></div>
-<a class="overlay-contact-item" href="mailto:cturner@insightactiontherapy.com"><svg viewbox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg><span>cturner@insightactiontherapy.com</span></a>
+<a class="overlay-contact-item" href="mailto:cturner@insightactiontherapy.com"><svg viewbox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg><span>Email Cyndi</span></a>
 <a class="overlay-contact-item" href="tel:+17036467664,28"><svg viewbox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"></path></svg>(703) 646-7664 ext. 28</a>
 <p class="overlay-close-hint">Tap to close</p>
 </div></div></div>
-<div aria-label="Toggle contact card for Matt Christian" class="team-card reveal reveal-delay-3" role="button" tabindex="0"><div class="team-card-inner"><div class="team-card-front"><div class="team-card-photo" style="background-image:url('images/matt-christian-headshot.jpg')"></div><div class="team-card-footer"><p class="team-contact-label">Contact</p><p class="team-name">Matt Christian</p><p class="team-role">LCSW, LSATP  ·  Executive Director, IIAT</p></div></div><div class="team-card-back">
+<div aria-label="Toggle contact card for Matt Christian" class="team-card reveal reveal-delay-3" role="button" tabindex="0"><div class="team-card-inner"><div class="team-card-front"><div class="team-card-photo" style="background-image:url('images/matt-christian-headshot.jpg')"></div><div class="team-card-footer"><p class="team-contact-label">Contact</p><p class="team-name">Matt Christian</p><p class="team-role">LCSW, LSATP  ·  Executive Director, IIAT</p></div></div><div class="team-card-back">
 <p class="overlay-name">Matt Christian</p><p class="overlay-creds">LCSW, LSATP</p><p class="overlay-role">Executive Director, Insight Into Action Therapy</p><div class="overlay-divider"></div>
-<a class="overlay-contact-item" href="mailto:mchristian@insightactiontherapy.com"><svg viewbox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg><span>mchristian@insightactiontherapy.com</span></a>
+<a class="overlay-contact-item" href="mailto:mchristian@insightactiontherapy.com"><svg viewbox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg><span>Email Matt</span></a>
 <a class="overlay-contact-item" href="tel:+17036467664,14"><svg viewbox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"></path></svg>(703) 646-7664 ext. 14</a>
 <p class="overlay-close-hint">Tap to close</p>
 </div></div></div>
-<div aria-label="Toggle contact card for Chrissy Chow" class="team-card reveal reveal-delay-4" role="button" tabindex="0"><div class="team-card-inner"><div class="team-card-front"><div class="team-card-photo" style="background-image:url('images/chrissy-chow-headshot.jpg')"></div><div class="team-card-footer"><p class="team-contact-label">Contact</p><p class="team-name">Chrissy Chow</p><p class="team-role">BSW, CSAC-S  ·  Executive Director, IRC</p></div></div><div class="team-card-back">
+<div aria-label="Toggle contact card for Chrissy Chow" class="team-card reveal reveal-delay-4" role="button" tabindex="0"><div class="team-card-inner"><div class="team-card-front"><div class="team-card-photo" style="background-image:url('images/chrissy-chow-headshot.jpg')"></div><div class="team-card-footer"><p class="team-contact-label">Contact</p><p class="team-name">Chrissy Chow</p><p class="team-role">BSW, CSAC-S  ·  Executive Director, IRC</p></div></div><div class="team-card-back">
 <p class="overlay-name">Chrissy Chow</p><p class="overlay-creds">BSW, CSAC-S</p><p class="overlay-role">Executive Director, Insight Recovery Centers</p><div class="overlay-divider"></div>
-<a class="overlay-contact-item" href="mailto:cchow@insightrecoverycenters.com"><svg viewbox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg><span>cchow@insightrecoverycenters.com</span></a>
+<a class="overlay-contact-item" href="mailto:cchow@insightrecoverycenters.com"><svg viewbox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg><span>Email Chrissy</span></a>
 <a class="overlay-contact-item" href="tel:+17032149499,23"><svg viewbox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"></path></svg>(703) 214-9499 ext. 23</a>
 <p class="overlay-close-hint">Tap to close</p>
 </div></div></div>
